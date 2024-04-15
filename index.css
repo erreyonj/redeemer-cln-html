@@ -1,4 +1,4 @@
-/* Box Model Hack */
+Box Model Hack
 * {
     box-sizing: border-box;
 }
@@ -21,7 +21,7 @@
 /* BASE STYLES (BORDERS INITIALIZED DURING DEV)
 /*******************************************/
 *{
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     /* font: 1.2rem/1.5rem "Bebas Neue", Roboto, sans-serif; */
 }
 
@@ -61,11 +61,16 @@ h3 {
 .btn {
     outline: none;
     border: none;
-    background-color: transparent;
-    color: rgb(45,55,69);
+    border-radius: 6px;
+    background-color: #8F9586;
+    color: #fff;
+    height: 35px;
+    width: 60px;
 }
 
 .btn:hover {
+    transition: background-color .3s ease-in-out;
+    background-color: #FF702A;
     cursor: pointer;
 }
 
@@ -91,7 +96,7 @@ h3 {
 .sectionBloc {
     height: 625px;
     margin: 0;
-    /* border: 1px solid indianred */
+    border: 1px solid pink
 }
 
 p{
@@ -106,6 +111,7 @@ p{
 
 ul{
     list-style: none;
+    padding: 0;
 }
 
 li{
@@ -127,6 +133,7 @@ a{
     display: flex;
     flex-flow: row wrap;
     place-content: center;
+
 }
 
 .flexColCenter{
@@ -134,6 +141,31 @@ a{
     flex-flow: column wrap;
     place-content: center;
 }
+
+.centeredTxt{
+    text-align: center;
+}
+
+
+@media all and (max-width: 435px){
+    .mobileLayout{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-auto-rows: minmax(75px,max-content);
+        /* width: 430px; */
+    }
+
+    /* .sectionBloc{
+        width: 430px;
+    } */
+
+    .descriptPara{
+        width: 100%;
+        font: 1.3rem/1.9rem Roboto, sans-serif;
+    }
+}
+
 
 /******************************************
 /* BUTTON TABLET SETTINGS - PORTRAIT
@@ -241,6 +273,7 @@ header {
     /* border: none; */
 }
 
+
 header ul{
     width: 100%;
     height: 100%;
@@ -249,8 +282,15 @@ header ul{
     place-content: center;
     margin: 0;
     padding: 0;
+    transition: box-shadow;
+    box-shadow: none;
     /* border: none; */
+}
+header li:hover{
+    transition: box-shadow .3s ease-in-out, background .5s ease-in-out;
+    background: #3B443F;
     box-shadow: inset 0 10px 5px rgba(25, 25, 25, .45);
+
 }
 
 header li{
@@ -258,13 +298,13 @@ header li{
     flex-flow: row wrap;
     place-content: center;
     height: 100%;
-    /* border-left: 1px solid #000; */
-    border-left: 1px solid #fff;
+    border-left: 1px solid #000;
+    /* border-left: 1px solid #fff; */
 }
 
 header li:last-child{
-    /* border-right: 1px solid #000; */
-    border-right: 1px solid #fff;
+    border-right: 1px solid #000;
+    /* border-right: 1px solid #fff; */
 }
 
 header h2{
@@ -291,42 +331,25 @@ header h2{
 
 
 /******************************************
-/* HEADER TABLET SETTINGS - PORTRAIT
+/* HEADER Mobile Rules
 /*******************************************/
-@media screen and (min-width:768px) {
-    /* .headerTitle {
-        width: 35%;
-    } */
-}
 
-/******************************************
-/* HEADER TABLET SETTINGS - LANDSCAPE
-/*******************************************/
-@media screen and (min-width:875px){
-    /* .headerTitle {
-        width: 35%;
-    } */
-}
+@media all and (max-width: 435px){
 
+    header {
+        display: flex;
+        place-content: center space-around;
+        position: static;
+        width: 100%;
+    }
 
-/******************************************
-/* TRUEBODY(MAIN STRUCTURE)
-/*******************************************/
-#trueBody {
-    height: 100vh;
-    background-color: rgb(80,169,168);
-    margin-top: 50px;
+    .lvl1Hidden{
+        display: none;
+        visibility: hidden;
+    }
 }
 
 
-/******************************************
-/* TRUEBODY TABLET SETTINGS - LANDSCAPE
-/*******************************************/
-@media screen and (min-width:875px) {
-    /* #trueBody {
-    margin-top: 0;
-    } */
-}
 
 /******************************************
 /* SECTION-SPLASH
@@ -361,11 +384,41 @@ header h2{
 
 
 /******************************************
+/* SPLASH Mobile Rules
+/*******************************************/
+
+@media all and (max-width: 435px){
+    #sectionSplash{
+        display: flex;
+        flex-flow: row wrap;
+        color: #fff;
+        place-content: flex-end;
+        height: 100%;
+        background: url("cleancloset1.png") 0 0 no-repeat;
+        background-size: cover;
+    }
+
+    #splashDescription {
+        display: flex;
+        flex-flow: column wrap;
+        place-content: flex-end center;
+        /* align-items: center; */
+        background: url("rdmrcln-splsh-overlay2.png") 0 0 no-repeat;
+        background-size: cover;
+        height: 80%;
+        width: 40%;
+    }
+}
+
+
+
+/******************************************
 /* SECTION-SERVICES
 /*******************************************/
 #sectionServices{
     display: flex;
-    justify-content: space-evenly;
+    flex-flow: row wrap;
+    place-content: center space-evenly;
     height: 100%;
 }
 
@@ -379,9 +432,39 @@ header h2{
 
 
 #serviceCards{
+    display: flex;
+    flex-flow: row wrap;
+    place-content: center;
     width: 67.5%;
     height: 100%;
     border-left: 1px solid indianred;
+    /* padding: 40px; */
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+
+#service1{
+    margin-top:1950px;
+}
+
+
+.servCard{
+    border-radius: 8px;
+    display: flex;
+    flex-flow: row wrap;
+    place-content: center space-around;
+    width: 100%;
+    scroll-snap-align: center;
+}
+
+.servCard img{
+    max-width: 70%
+}
+
+.servCard p{
+    text-align: center;
+    font: 1.4rem/2.5rem Roboto, sans-serif;
 }
 
 
@@ -697,10 +780,34 @@ header h2{
     height: 92%;
     width: 95%;
 }
-#PH{
-    height: 6%;
+
+.PH{
+    
 }
 
+.revCard{
+    background: #fff;
+    border-radius: 50px;
+    display: flex;
+    flex-flow: column wrap;
+    place-content: center;
+    width: 90%;
+    height: 70%;
+    scroll-snap-align: center;
+}
+
+.revCard p{
+    text-align: center;
+    font: 4rem/5rem "Nothing You Could Do", sans-serif;
+    width: 90%;
+}
+
+.revCard span{
+    text-align: right;
+    font: 1.9rem/1.8rem Roboto, sans-serif;
+    width: 20%;
+    align-self: flex-end;
+}
 
 /******************************************
 /* SECTION-CONTACT
@@ -712,24 +819,60 @@ header h2{
     height: 100%;
 }
 
-form{
-    display: flex;
-    flex-flow: row wrap;
-    height: 100%;
+#contactForm{
     border-left: 1px solid indianred;
     width: 60%;
+    padding: 40px;
+
+}
+
+form{
+    /* display: flex; */
+    /* flex-flow: row wrap; */
+    height: 100%;
+}
+
+form *{
+    /* border: 1px solid blue; */
+
+}
+
+label {
+    font: 3rem/1.8rem Roboto, sans-serif;
+    margin-bottom: 5px;
+    display: block;
+}
+
+textarea{
+    width: 100%;
+    border: 1px solid black;
+    outline: none;
+    margin: 8px 0;
 }
 
 input{
-    height: 20px;
-    width: 30%;
-    margin: 0 20px; 
+    /* height: 20px; */
+    width: 100%;
+    /* margin: 0 20px;  */
+    /* overflow: hidden; */
+    border: none;
+    border-bottom: 1.5px solid black;
     outline: none;
-    overflow: hidden;
-    /* border-bottom: 3px solid black;
-    border-top: none;
-    border-left: none;
-    border-right: none; */
+    padding: 8px 0px;
+    /* border-top: none; */
+    /* border-left: none; */
+    /* border-right: none; */
+}
+
+.inputRow{
+    display: flex;
+    justify-content: space-between;
+    height: 28%;
+
+}
+
+.inputGroup{
+    flex-basis: 45%;
 }
 
 #contactDescription{
@@ -761,7 +904,9 @@ footer {
 }
 
 #ftrLinkList{
-    /* width: 30%; */
+    display: flex;
+    flex-flow: column wrap;
+    place-content: center;
 }
 
 #ftrLinkList li{
