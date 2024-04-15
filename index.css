@@ -343,7 +343,7 @@ header h2{
         width: 100%;
     }
 
-    .lvl1Hidden{
+    .notMobile{
         display: none;
         visibility: hidden;
     }
