@@ -383,7 +383,7 @@ header h2{
 
 
 .scrollContainer{
-    padding: 10px 7px 0px 7px;
+    padding: 10px 10px 0px 10px;
     height: 450px;
     overflow: scroll;
     scroll-snap-type: y mandatory;
@@ -417,7 +417,7 @@ header h2{
 
 .card{
     background: #366067;
-    margin: 5px 0;
+    margin: 0px 0px 5px 0px;
     border-radius: 8px;
     display: flex;
     flex-flow: row wrap;
@@ -727,6 +727,7 @@ header h2{
     display: flex;
     flex-flow: column wrap;
     place-content: center space-around;
+    margin-top: 15px;
     height: 100%;
 }
 
@@ -767,7 +768,7 @@ header h2{
     margin: 30px 0px 8px 0px;
     padding: 10px;
     text-align: center;
-    font: 3rem/3.5rem "Nothing You Could Do", sans-serif;
+    font: 1.9rem/1.7rem "Nothing You Could Do", sans-serif;
     width: 90%;
 }
 
