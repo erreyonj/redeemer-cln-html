@@ -728,20 +728,47 @@ header h2{
     flex-flow: column wrap;
     place-content: center space-around;
     height: 100%;
+    overflow: scroll;
 }
 
 #galleryDescription{
     margin-top: 15px;
 }
 
-#galryPH{
-    height: 450px;
-    width: 95%;
-}
 .PH{
     height: 6%;
     /* align-self: center; */
 }
+
+.scrollContainer.infScrollX{
+    /* overflow: hidden;
+    scroll-snap-type: x mandatory; */
+}
+
+@keyframes infScroll{
+    /* from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    } */
+    to{
+        translate: calc(-8 * 40rem);
+    }
+}
+
+#galleryImgs{
+    white-space: nowrap;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 40rem;
+    place-content: center;
+    justify-items: stretch;
+    animation: 30s infScroll infinite linear;
+}
+
+
+
 
 
 
