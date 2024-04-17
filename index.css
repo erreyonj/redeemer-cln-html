@@ -383,11 +383,12 @@ header h2{
 
 
 .scrollContainer{
-    padding: 10px 7px 20px 7px;
+    padding: 10px 7px 0px 7px;
     height: 450px;
     overflow: scroll;
     scroll-snap-type: y mandatory;
     background: #fff;
+    margin-bottom: 20px;
     /* position: relative; */
     /* top: 585px; */
     /* left: 0;  */
