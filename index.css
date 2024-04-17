@@ -790,7 +790,7 @@ header h2{
     display: flex;
     flex-flow: row wrap;
     place-content: center;
-    height: 100%;
+    height: auto;
 }
 
 #contactForm{
