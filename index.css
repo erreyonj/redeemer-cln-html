@@ -874,7 +874,8 @@ footer {
     background: #272C29;  
     color: #fff;
     /* width: 100%; */
-    /* position: fixed; */
+    position: relative;
+    bottom: 0;
 }
 
 .ftrBox{
