@@ -972,7 +972,7 @@ footer {
 /* QUERIES
 /*******************************************/
 
-@media all and (max-width: 430px){
+@media all (min-width: 325px){
     #mobileLayout{
         display: grid;
         grid-template-columns: 1fr;
