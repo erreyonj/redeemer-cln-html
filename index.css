@@ -21,7 +21,7 @@ Box Model Hack
 /* BASE STYLES (BORDERS INITIALIZED DURING DEV)
 /*******************************************/
 *{
-    border: 1px solid blue;
+    /* border: .3px solid blue; */
     /* font: 1.2rem/1.5rem "Bebas Neue", Roboto, sans-serif; */
 }
 
@@ -29,17 +29,16 @@ html {
     font-size: 62.5%;
 }
 
-
 *::-webkit-scrollbar {
     display: none;
 }
 
 h1 {
     width: 30%;
-    text-align: right;
-    margin: 7px 0 7px 213px;
+    text-align: left;
+    margin: 7px;
     padding: 0;
-    font: 8rem/8rem "Bebas Neue", Roboto, sans-serif;
+    font: 5rem/5rem "Bebas Neue", Roboto, sans-serif;
 }
 
 h2 {
@@ -48,7 +47,6 @@ h2 {
     padding: 0;
     text-align: center;
     font: 4rem/4rem "Bebas Neue", Roboto, sans-serif;
-
 }
 
 h3 {
@@ -74,29 +72,11 @@ h3 {
     cursor: pointer;
 }
 
-#leftArrow {
-    position: absolute;
-    left: 25px;
-    bottom: 35%;
-    color: rgb(255,255,255);
-}
-#rightArrow {
-    position: absolute;
-    right: 25px;
-    bottom: 35%;
-    color: rgb(255,255,255);
-}
-
-#downArrow {
-    position: absolute;
-    bottom: 10%;
-    color: rgba(242,238,235,.5)
-}
 
 .sectionBloc {
-    height: 625px;
+    width: 100%;
     margin: 0;
-    border: 1px solid pink
+    /* border: 1px solid pink */
 }
 
 p{
@@ -133,7 +113,6 @@ a{
     display: flex;
     flex-flow: row wrap;
     place-content: center;
-
 }
 
 .flexColCenter{
@@ -146,82 +125,9 @@ a{
     text-align: center;
 }
 
-
-@media all and (max-width: 435px){
-    .mobileLayout{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-auto-rows: minmax(75px,max-content);
-        /* width: 430px; */
-    }
-
-    /* .sectionBloc{
-        width: 430px;
-    } */
-
-    .descriptPara{
-        width: 100%;
-        font: 1.3rem/1.9rem Roboto, sans-serif;
-    }
-}
-
-
-/******************************************
-/* BUTTON TABLET SETTINGS - PORTRAIT
-/*******************************************/
-
-@media all and (min-width:768px) {
-        /* #leftArrow {
-            position: absolute;
-            left: 180px;
-            bottom: 52%;
-            color: rgb(255,255,255);
-        }
-        #rightArrow {
-            position: absolute;
-            right: 180px;
-            bottom: 52%;
-            color: rgb(255,255,255);
-        }
-        
-        #downArrow {
-            position: absolute;
-            bottom: 26%;
-            color: rgba(242,238,235,.7)
-        } */
-}
-
-/******************************************
-/* BUTTON TABLET SETTINGS - PORTRAIT
-/*******************************************/
-@media all and (min-width:875px) {
-        /* .btn {
-            display: none;
-            visibility: hidden;
-        }
-        header .btn {
-        display: block;
-        visibility: visible;
-        }
-        
-        #leftArrow {
-            position: absolute;
-            left: 5%;
-            bottom: 59%;
-        }
-        #one #rightArrow {
-            width: 25px;
-            position: absolute;
-            left: 26%;
-            bottom: 59%;
-        }
-        
-        #downArrow {
-            position: absolute;
-            bottom: 31%;
-            left: 14%;
-        } */
+.closed {
+    display: none;
+    visibility: hidden;
 }
 
 
@@ -229,19 +135,17 @@ a{
 /* HEADER
 /*******************************************/
 header {
-    /* color: #000; */
     color: #fff;
     display: flex;
     place-content: center space-around;
     height: 75px;
     width: 100%;
-    /* background: #fff; */
     background: #272C29;
     position: fixed;
     top: 0;
 }
 
-#header{
+#header *{
     border: none;
 }
 
@@ -251,7 +155,6 @@ header {
     flex-flow: row wrap;
     place-content: center flex-start;
     width: 42%;
-    /* align-items: flex-start; */
 }
 
 #headerLogoBox{
@@ -270,7 +173,6 @@ header {
     place-content: center;
     width: 42%;
     margin: 0;
-    /* border: none; */
 }
 
 
@@ -284,7 +186,6 @@ header ul{
     padding: 0;
     transition: box-shadow;
     box-shadow: none;
-    /* border: none; */
 }
 header li:hover{
     transition: box-shadow .3s ease-in-out, background .5s ease-in-out;
@@ -299,12 +200,10 @@ header li{
     place-content: center;
     height: 100%;
     border-left: 1px solid #000;
-    /* border-left: 1px solid #fff; */
 }
 
 header li:last-child{
     border-right: 1px solid #000;
-    /* border-right: 1px solid #fff; */
 }
 
 header h2{
@@ -329,12 +228,63 @@ header h2{
 }
 
 
+#headerX{
+    position: fixed;
+    top: 35px;
+    left: 72px;
+    
+}
+
+.burger.btn{
+    background: transparent;
+}
+
+
+@keyframes appear {
+    0%{
+        top: 0;
+        right: 0;
+    }
+    100%{
+        top: 75px;
+        right: 0px;
+    }
+}
+
+
+
+#menu.closed {
+    width: 430px;
+    height: 930px;
+    background: url('rdm-cln-menu-bg.png') 0 0 no-repeat;
+    position: fixed;
+    top: -75px;
+}
+
+#menu{
+    width: 430px;
+    height: 930px;
+    /* background: url('rdm-cln-menu-bg.png') 0 0 no-repeat; */
+    background: #272C29;
+    opacity: .9;
+    position: fixed;
+    animation-name: appear;
+    /* transition: top .5s ease-in-out; */
+    top: 75px;
+    left: 0px;
+}
+
+#menu nav a{
+    font: 2.5rem/5rem "Bebas Neue", Roboto, sans-serif;
+}
+
+
 
 /******************************************
 /* HEADER Mobile Rules
 /*******************************************/
 
-@media all and (max-width: 435px){
+/* @media all and (max-width: 430px){
 
     header {
         display: flex;
@@ -347,7 +297,7 @@ header h2{
         display: none;
         visibility: hidden;
     }
-}
+} */
 
 
 
@@ -358,27 +308,30 @@ header h2{
     display: flex;
     flex-flow: row wrap;
     color: #fff;
-    place-content: flex-end;
-    height: 100%;
+    /* place-content: flex-end; */
+    height: 500px;
     background: url("cleancloset1.png") 0 0 no-repeat;
     background-size: cover;
+}
+
+#sectionSplash *{
+    border: none;
 }
 
 #splashDescription {
     display: flex;
     flex-flow: column wrap;
-    place-content: flex-end center;
+    place-content: flex-start center;
     /* align-items: center; */
-    background: url("rdmrcln-splsh-overlay2.png") 0 0 no-repeat;
+    background: url("rdmrcln-splsh-overlay-mobile.png") 0 100% no-repeat;
     background-size: cover;
-    height: 80%;
-    width: 70%;
+    width: 100%;
 }
 
 #splashDescription p{
-    margin: 5px 175px 0 0;
-    text-align: right;
-    font: 2.5rem/2.5rem Roboto, sans-serif;
+    margin: 7px;
+    text-align: left;
+    font: 1.4rem/1.7rem Roboto, sans-serif;
 }
 
 
@@ -387,7 +340,7 @@ header h2{
 /* SPLASH Mobile Rules
 /*******************************************/
 
-@media all and (max-width: 435px){
+/* @media all and (max-width: 430px){
     #sectionSplash{
         display: flex;
         flex-flow: row wrap;
@@ -402,13 +355,12 @@ header h2{
         display: flex;
         flex-flow: column wrap;
         place-content: flex-end center;
-        /* align-items: center; */
         background: url("rdmrcln-splsh-overlay2.png") 0 0 no-repeat;
         background-size: cover;
         height: 80%;
         width: 40%;
     }
-}
+} */
 
 
 
@@ -416,9 +368,9 @@ header h2{
 /* SECTION-SERVICES
 /*******************************************/
 #sectionServices{
-    display: flex;
+    /* display: flex;
     flex-flow: row wrap;
-    place-content: center space-evenly;
+    place-content: center space-evenly; */
     height: 100%;
 }
 
@@ -426,43 +378,62 @@ header h2{
     /* display: flex;
     flex-flow: column wrap;
     place-content: center; */
-    width: 27.5%;
-    height: 100%;
+    /* position: static; */
 }
 
+
+.scrollContainer{
+    padding: 10px 7px 20px 7px;
+    height: 450px;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    background: #fff;
+    /* position: relative; */
+    /* top: 585px; */
+    /* left: 0;  */
+}
 
 #serviceCards{
     display: flex;
     flex-flow: row wrap;
     place-content: center;
-    width: 67.5%;
-    height: 100%;
-    border-left: 1px solid indianred;
+    width: 100%;
+    /* border-left: 1px solid indianred; */
+    background: #585B4C;
     /* padding: 40px; */
-    overflow: scroll;
-    scroll-snap-type: y mandatory;
+}
+
+#service4{
+    margin-bottom: 0;
+    box-shadow: none;
 }
 
 
 #service1{
-    margin-top:1950px;
+    /* margin-top:1950px; */
 }
 
 
-.servCard{
+.card{
+    background: #366067;
+    margin: 5px 0;
     border-radius: 8px;
     display: flex;
     flex-flow: row wrap;
     place-content: center space-around;
     width: 100%;
     scroll-snap-align: center;
+    color: #fff;
+    box-shadow: 0px 5px 5px #272C29;
 }
 
-.servCard img{
-    max-width: 70%
+.card img{
+    margin: 1rem;
+    max-width: 90%
 }
 
-.servCard p{
+.card p{
+    width: 90%;
     text-align: center;
     font: 1.4rem/2.5rem Roboto, sans-serif;
 }
@@ -657,21 +628,26 @@ header h2{
 /* SECTION-ABOUT
 /*******************************************/
 #sectionAbout{
-    display: flex;
-    justify-content: space-evenly;
+    /* display: flex;
+    justify-content: space-evenly; */
     height: 100%;
     background: #BABCB0;
 }
 
 #aboutDescription{
-    width: 30%;
-    height: 100%;
+    width: 80%;
+    align-self: center;
+}
+
+#aboutDescription h2{
+    align-self: center;
 }
 
 #ownerPhoto{
-    width: 50%;
-    height: 100%;
-    border-left: 1px solid indianred;
+    width: 95%;
+    height: auto;
+    margin: 15px 0;
+    /* border-left: 1px solid indianred; */
 }
 
 
@@ -754,12 +730,12 @@ header h2{
 }
 
 #galryPH{
-    height: 92%;
+    height: 450px;
     width: 95%;
 }
 .PH{
     height: 6%;
-    align-self: center;
+    /* align-self: center; */
 }
 
 
@@ -776,37 +752,35 @@ header h2{
     background: #BABCB0;
 }
 
-#revPH{
-    height: 92%;
-    width: 95%;
+#revCards{
+    background: #585B4C;
+    /* height: 92%; */
+    width: 100%;
 }
 
-.PH{
-    
+.custRev{
+    padding-bottom: 10px;
 }
 
-.revCard{
-    background: #fff;
-    border-radius: 50px;
-    display: flex;
-    flex-flow: column wrap;
-    place-content: center;
-    width: 90%;
-    height: 70%;
-    scroll-snap-align: center;
-}
-
-.revCard p{
+.custRev p{
+    margin: 30px 0px 8px 0px;
+    padding: 10px;
     text-align: center;
-    font: 4rem/5rem "Nothing You Could Do", sans-serif;
+    font: 3rem/3.5rem "Nothing You Could Do", sans-serif;
     width: 90%;
 }
 
-.revCard span{
-    text-align: right;
+.custRev span{
+    text-align: center;
     font: 1.9rem/1.8rem Roboto, sans-serif;
-    width: 20%;
+    width: 60%;
     align-self: flex-end;
+}
+
+
+#sectionReviews .scrollContainer{
+    height: auto;
+    background:#BABCB0; 
 }
 
 /******************************************
@@ -815,37 +789,38 @@ header h2{
 #sectionContact{
     display: flex;
     flex-flow: row wrap;
-    place-content: center space-around;
+    place-content: center;
     height: 100%;
 }
 
 #contactForm{
-    border-left: 1px solid indianred;
-    width: 60%;
-    padding: 40px;
+    width: 100%;
+    padding: 10px;
+}
 
+#contactForm .btn{
+    
 }
 
 form{
     /* display: flex; */
     /* flex-flow: row wrap; */
-    height: 100%;
+    /* height: 100%; */
 }
 
-form *{
-    /* border: 1px solid blue; */
-
+form button{
+    align-self: center;
 }
 
 label {
-    font: 3rem/1.8rem Roboto, sans-serif;
-    margin-bottom: 5px;
+    font: 3rem/3rem Roboto, sans-serif;
+    margin: 10px 0px;
     display: block;
 }
 
 textarea{
     width: 100%;
-    border: 1px solid black;
+    border: .5px solid black;
     outline: none;
     margin: 8px 0;
 }
@@ -867,6 +842,7 @@ input{
 .inputRow{
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     height: 28%;
 
 }
@@ -880,6 +856,10 @@ input{
     height: 100%;
 }
 
+#contactDescription h2{
+    width: 100%;
+}
+
 
 
 /******************************************
@@ -888,7 +868,7 @@ input{
 footer {
     display: flex;
     justify-content: space-around;
-    height: 200px;
+    height: 300px;
     background: #272C29;  
     color: #fff;
     /* width: 100%; */
@@ -904,37 +884,27 @@ footer {
 }
 
 #ftrLinkList{
-    display: flex;
-    flex-flow: column wrap;
-    place-content: center;
+    
 }
 
-#ftrLinkList li{
-    width: 50%;
+#ftrLinkList ul, li{
+    /* text-align: left; */
+    width: 100%;
 }
 
 #ftrLinkList a{
-    font: 1.9rem/1.9rem Roboto, sans-serif;
+    font: 2rem/2.5rem Roboto, sans-serif;
 }
 
 /******************************************
-/* FOOTER TABLET LANDSCAPE SETTINGS (HOVER)
+/* QUERIES
 /*******************************************/
-@media all and (min-width:875px) {
-    /* #body #footer{
-    width: 20%;
-    left: 75px;
+
+@media all and (max-width: 430px){
+    #mobileLayout{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-auto-rows: minmax(75px,max-content);
     }
-
-
-    #body #footer:hover {
-    height: 185px;
-    transition: height .4s ease-in-out;
-    }
-
-    #footer #socialBar {
-    height: 50px;
-    align-self: flex-start;
-    } */
 }
-
