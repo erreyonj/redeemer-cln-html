@@ -143,6 +143,7 @@ header {
     background: #272C29;
     position: fixed;
     top: 0;
+    z-index: 3;
 }
 
 #header *{
@@ -728,7 +729,7 @@ header h2{
     flex-flow: column wrap;
     place-content: center space-around;
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 #galleryDescription{
@@ -745,7 +746,7 @@ header h2{
     scroll-snap-type: x mandatory; */
 }
 
-@keyframes infScroll{
+@keyframes infScrollLft{
     /* from{
         transform: translateX(0);
     }
@@ -756,15 +757,30 @@ header h2{
         translate: calc(-8 * 40rem);
     }
 }
+@keyframes infScrollRt{
+    /* from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    } */
+    to{
+        translate: calc(8 * 40rem);
+    }
+}
 
-#galleryImgs{
+.scroller:hover {
+    animation-play-state: paused;
+}
+
+.scroller{
     white-space: nowrap;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 40rem;
     place-content: center;
     justify-items: stretch;
-    animation: 30s infScroll infinite linear;
+    animation: 30s infScrollLft infinite linear;
 }
 
 
@@ -782,16 +798,32 @@ header h2{
     place-content: center space-around;
     height: 100%;
     background: #BABCB0;
+    overflow: hidden;
 }
 
 #revCards{
-    background: #585B4C;
+    /* background: #585B4C; */
+    padding-bottom: 10px;
     /* height: 92%; */
     width: 100%;
 }
 
+#revCards.scroller{
+    animation: 75s infScrollRt infinite linear;
+    gap: 5rem;
+}
+
+#revCards.scroller:hover{
+    animation-play-state: paused;
+}
+
 .custRev{
     padding-bottom: 10px;
+}
+
+.custRev.card{
+    text-wrap: wrap;
+    margin: 0px 10px;
 }
 
 .custRev p{
@@ -804,7 +836,7 @@ header h2{
 
 .custRev span{
     text-align: center;
-    font: 1.9rem/1.8rem Roboto, sans-serif;
+    font: 1.5rem/1.3rem Roboto, sans-serif;
     width: 60%;
     align-self: flex-end;
 }
