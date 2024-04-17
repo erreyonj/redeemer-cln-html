@@ -727,8 +727,11 @@ header h2{
     display: flex;
     flex-flow: column wrap;
     place-content: center space-around;
-    margin-top: 15px;
     height: 100%;
+}
+
+#galleryDescription{
+    margin-top: 15px;
 }
 
 #galryPH{
@@ -783,6 +786,10 @@ header h2{
 #sectionReviews .scrollContainer{
     height: auto;
     background:#BABCB0; 
+}
+
+#reviewsDescription{
+    margin-top: 15px;
 }
 
 /******************************************
@@ -857,6 +864,7 @@ input{
 #contactDescription{
     width: 35%;
     height: 100%;
+    margin-top: 15px;
 }
 
 #contactDescription h2{
