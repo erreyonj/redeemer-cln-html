@@ -2,8 +2,8 @@
 // GLOBAL VARIABLES
 ///////////
 const allOfHeaderMenu = document.querySelector('#burgerDiv')
-
-
+const wrapper = document.querySelector('.wrapper')
+const fullscreenLO = document.querySelector('#fullscreenLO')
 
 
 
@@ -19,6 +19,7 @@ const toggleMenu = () => {
 }
 
 
+// screen-size 1200 functions
 const hideMenu = () => {
     if(window.screen.availWidth>=1200){
         allOfHeaderMenu.setAttribute('style','display:none')
@@ -26,14 +27,21 @@ const hideMenu = () => {
     }
     allOfHeaderMenu.toggleAttribute('style')
 }
-
 const removeMobileLO = () => {
     if(window.screen.availWidth>=1200){
-        document.body.toggleAttribute('id')
+        wrapper.setAttribute('id','fullscreenLO')
         return
     }
-    document.body.toggleAttribute('id')
+    wrapper.setAttribute('id','mobileLayout')
 }
+const makeRows = () => {
+    if(window.screen.availWidth>=1200){
+        fullscreenLO.
+        return
+    }
+}
+
+
 
 
 
