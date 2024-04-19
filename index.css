@@ -87,6 +87,19 @@ p{
 .descriptPara{
     width: 80%;
     font: 1.7rem/2.5rem Roboto, sans-serif;
+    display: none;
+    visibility: hidden;
+}
+
+@media all and (min-width:1200){
+    
+}
+
+@media all and (min-width:1300){
+    .descriptPara{
+        visibility: visible;
+        display: block;
+    }
 }
 
 ul{
@@ -130,6 +143,17 @@ a{
     visibility: hidden;
 }
 
+.notMobile{
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    top: -75;
+}
+
+.isMobile{
+    position: static
+}
+
 
 /******************************************
 /* HEADER
@@ -137,7 +161,7 @@ a{
 header {
     color: #fff;
     display: flex;
-    place-content: center space-around;
+    place-content: center space-between;
     height: 75px;
     width: 100%;
     background: #272C29;
@@ -151,21 +175,20 @@ header {
 }
 
 
-#headerLogoSpacedContainer{
+/* #headerLogoSpacedContainer{
     display: flex;
     flex-flow: row wrap;
     place-content: center flex-start;
     width: 42%;
-}
+} */
 
 #headerLogoBox{
-    width: 50%;
+    order: 1;
     height: 100%;
 }
 #headerLogoBox img{
     height: 75px;
     padding: 0;
-    margin-left: 20px;
 }
 
 #headerNav{
@@ -174,6 +197,7 @@ header {
     place-content: center;
     width: 42%;
     margin: 0;
+    order: 2;
 }
 
 
@@ -181,7 +205,7 @@ header ul{
     width: 100%;
     height: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     place-content: center;
     margin: 0;
     padding: 0;
@@ -199,8 +223,8 @@ header li{
     display: flex;
     flex-flow: row wrap;
     place-content: center;
-    height: 100%;
-    border-left: 1px solid #000;
+    /* height: 100%; */
+    border-left: 1px solid #fff;
 }
 
 header li:last-child{
@@ -217,6 +241,7 @@ header h2{
     flex-flow: row wrap;
     place-content: center space-around;
     width: 15%;
+    order: 3;
 }
 
 #headerSocials a{
@@ -242,16 +267,17 @@ header h2{
 
 
 @keyframes appear {
-    0%{
+    from{
+        opacity: 0;
         top: 0;
         right: 0;
     }
-    100%{
+    to{
+        opacity: 1;
         top: 75px;
         right: 0px;
     }
 }
-
 
 
 #menu.closed {
@@ -263,42 +289,62 @@ header h2{
 }
 
 #menu{
-    width: 430px;
+    width: 100vw;
     height: 930px;
     /* background: url('rdm-cln-menu-bg.png') 0 0 no-repeat; */
     background: #272C29;
     opacity: .9;
     position: fixed;
-    animation-name: appear;
     /* transition: top .5s ease-in-out; */
     top: 75px;
     left: 0px;
+    animation: .4s appear linear;
 }
 
 #menu nav a{
-    font: 2.5rem/5rem "Bebas Neue", Roboto, sans-serif;
+    width: 95%;
+    font: 5rem/14rem "Bebas Neue", Roboto, sans-serif;
+    border-bottom: .3px solid #f2f2f2;
 }
 
 
 
 /******************************************
-/* HEADER Mobile Rules
+/* HEADER QUERIES (min-width = 700)
 /*******************************************/
 
-/* @media all and (max-width: 430px){
+// (min-width = 700)
 
-    header {
-        display: flex;
-        place-content: center space-around;
-        position: static;
-        width: 100%;
+@media all and (min-width: 700px){
+    
+    #menu{
+        width:100vw;
+        order:1;
     }
 
-    .notMobile{
+    #headerLogoBox{
+      align-self: ;  
+    }
+}
+
+@media all and (min-width: 875px){
+    header {
+        
+    }
+}
+
+
+// (min-width) = 1200
+
+@media all and (min-width: 1200px){
+    div#burgerDiv.isMobile{
         display: none;
         visibility: hidden;
+        position: absolute;
+        top: -75;
     }
-} */
+}
+
 
 
 
@@ -341,8 +387,8 @@ header h2{
 /* SPLASH Mobile Rules
 /*******************************************/
 
-/* @media all and (max-width: 430px){
-    #sectionSplash{
+@media all and (min-width: 870px){
+    /* #sectionSplash{
         display: flex;
         flex-flow: row wrap;
         color: #fff;
@@ -350,18 +396,20 @@ header h2{
         height: 100%;
         background: url("cleancloset1.png") 0 0 no-repeat;
         background-size: cover;
-    }
+    } */
 
     #splashDescription {
-        display: flex;
-        flex-flow: column wrap;
-        place-content: flex-end center;
+        /* display: flex; */
+        /* flex-flow: column wrap; */
+        /* place-content: flex-end center; */
         background: url("rdmrcln-splsh-overlay2.png") 0 0 no-repeat;
-        background-size: cover;
-        height: 80%;
-        width: 40%;
+        /* background-size: cover; */
+        /* height: 80%; */
+        /* width: 40%; */
     }
-} */
+
+    
+}
 
 
 
@@ -384,7 +432,7 @@ header h2{
 
 
 .scrollContainer{
-    padding: 10px 10px 0px 10px;
+    padding: 10px 8% 0px 8%;
     height: 450px;
     overflow: scroll;
     scroll-snap-type: y mandatory;
@@ -393,6 +441,12 @@ header h2{
     /* position: relative; */
     /* top: 585px; */
     /* left: 0;  */
+}
+
+@media all and (min-width: 1200){
+    .scrollContainer{
+        height: auto;
+    }
 }
 
 #serviceCards{
@@ -443,51 +497,49 @@ header h2{
 
 
 /******************************************
-/* SECTION-SERVICES TABLET (PORTRAIT) SETTINGS
+/* SERVICES QUERIES
 /*******************************************/
 
-@media screen and (min-width:768px) {
-    /* #one {
-        justify-content: flex-start;
-    }
-    
-    #one .gallery {
-        height: 65%;
-        width: 85%;
-    }
+// (min-width) = 700
 
-    #one #abtUsTablet {
-        display: flex;
-        visibility: visible;
-        flex-flow: column nowrap;
-        align-items: center;
+@media screen and (min-width:700px) {
+    .card img{
+        margin: 1.5rem;
+        max-width: 70%
     }
-
-    #abtUsTablet h3 {
-        display: flex;
-        color: rgb(234,37,76);
-        background-color: rgb(253,255,255);
-        height: 36px;
-        width: 50%;
-        flex-flow: row wrap;
-        place-content: center;
-        margin: 1.7% 0;    
-    }
-
-    #abtUsTablet p {
-        width: 65%;
-        font: 1.3rem/1.5rem "Courgette", Helvetica, sans-serif;
-        margin: 0;
-        text-align: center;
-    }
-
-    .scrollSection .card {
-        height: 575px;
-        width: 450px;
-        object-fit: cover;
-        align-self: center;
-    } */
 }
+
+@media all and (min-width: 875px){
+    .card img{
+        margin: 1rem;
+        max-width: 75%
+    }
+}
+@media all and (min-width: 1000px){
+    .card img{
+        margin: 1rem;
+        max-width: 65%
+    }
+}
+@media all and (min-width: 1200px){
+    .notMobile{
+        display: block;
+        visibility: visible;
+        position: static;
+        top: 0;
+    }
+}
+@media all and (min-width: 1300px){
+    .notMobile{
+        display: block;
+        visibility: visible;
+        position: static;
+        top: 0;
+    }
+
+
+}
+
 
 /******************************************
 /* SECTION-SERVICES TABLET (LANDSCAPE) SETTINGS
@@ -641,6 +693,11 @@ header h2{
     align-self: center;
 }
 
+#aboutDescription .descriptPara{
+    display: block;
+    visibility: visible;
+}
+
 #aboutDescription h2{
     align-self: center;
 }
@@ -741,10 +798,6 @@ header h2{
     /* align-self: center; */
 }
 
-.scrollContainer.infScrollX{
-    /* overflow: hidden;
-    scroll-snap-type: x mandatory; */
-}
 
 @keyframes infScrollLft{
     /* from{
@@ -868,9 +921,11 @@ header h2{
     margin-bottom: 20px;
 }
 
-#contactForm .btn{
-    
-}
+/* @media all and (min-width:1200){
+    #contactForm{
+        width: auto;
+    }
+} */
 
 form{
     /* display: flex; */
@@ -952,6 +1007,8 @@ footer {
 }
 
 #ftrAbt .descriptPara{
+    visibility: visible;
+    display: block;
     font: 1.9rem/1.9rem Roboto, sans-serif;
 }
 
@@ -965,7 +1022,7 @@ footer {
 }
 
 #ftrLinkList a{
-    font: 2rem/2.5rem Roboto, sans-serif;
+    font: 1.7rem/2rem Roboto, sans-serif;
 }
 
 /******************************************
@@ -980,3 +1037,12 @@ footer {
         grid-auto-rows: minmax(75px,max-content);
     }
 }
+
+/* @media all and (min-width:1200){
+    #contactForm{
+        width: auto;
+    }
+} */
+
+
+// use js to remove #mobileLayout from div, wrapper?
