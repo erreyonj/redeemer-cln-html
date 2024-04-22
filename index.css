@@ -79,6 +79,7 @@ h3 {
     /* border: 1px solid pink */
 }
 
+
 p{
     width: 48%;
     font: 1.2rem/1.5rem Roboto, sans-serif;
@@ -86,7 +87,7 @@ p{
 
 .descriptPara{
     width: 80%;
-    font: 1.7rem/2.5rem Roboto, sans-serif;
+    font: 1.7rem/1.9rem Roboto, sans-serif;
     display: none;
     visibility: hidden;
 }
@@ -153,8 +154,9 @@ a{
 .notMobile{
     display: none;
     visibility: hidden;
-    position: absolute;
-    top: -75;
+    /* position: absolute; */
+    /* height: 0%; */
+    top: -75px;
 }
 
 .isMobile{
@@ -192,7 +194,10 @@ header {
 #headerLogoBox{
     order: 1;
     height: 100%;
+    position: fixed;
+    right: 35px;
 }
+
 #headerLogoBox img{
     height: 75px;
     padding: 0;
@@ -270,6 +275,8 @@ header h2{
 
 .burger.btn{
     background: transparent;
+    position: fixed;
+    left: 30px;
 }
 
 
@@ -329,9 +336,6 @@ header h2{
         order:1;
     }
 
-    #headerLogoBox{
-      align-self: ;  
-    }
 }
 
 @media all and (min-width: 875px){
@@ -350,6 +354,12 @@ header h2{
         position: absolute;
         top: -75;
     }
+
+    /* #headerLogoBox{
+        order: 1;
+        height: 100%;
+        position: static;
+    } */
 }
 
 
@@ -364,7 +374,7 @@ header h2{
     color: #fff;
     /* place-content: flex-end; */
     height: 500px;
-    background: url("cleancloset1.png") 0 0 no-repeat;
+    background: url("cleancloset2.png") 0 0 no-repeat;
     background-size: cover;
 }
 
@@ -377,8 +387,8 @@ header h2{
     flex-flow: column wrap;
     place-content: flex-start center;
     /* align-items: center; */
-    background: url("rdmrcln-splsh-overlay-mobile.png") 0 100% no-repeat;
-    background-size: cover;
+    /* background: url("rdmrcln-splsh-overlay-mobile.png") 0 100% no-repeat; */
+    /* background-size: cover; */
     width: 100%;
 }
 
@@ -391,10 +401,10 @@ header h2{
 
 
 /******************************************
-/* SPLASH Mobile Rules
+/* SPLASH QUERIES
 /*******************************************/
 
-@media all and (min-width: 870px){
+@media all and (min-width: 1100px){
     /* #sectionSplash{
         display: flex;
         flex-flow: row wrap;
@@ -405,17 +415,17 @@ header h2{
         background-size: cover;
     } */
 
-    #splashDescription {
-        /* display: flex; */
-        /* flex-flow: column wrap; */
-        /* place-content: flex-end center; */
-        background: url("rdmrcln-splsh-overlay2.png") 0 0 no-repeat;
-        /* background-size: cover; */
-        /* height: 80%; */
-        /* width: 40%; */
+    #sectionSplash {
+        background: url("cleancloset3.png") 0 0 no-repeat;
+        background-size: cover;
     }
+}
 
-    
+@media all and (min-width: 1200px){
+    #sectionSplash {
+        background-size: cover;
+        background-position: bottom 10%;
+    }
 }
 
 
@@ -428,7 +438,12 @@ header h2{
     flex-flow: row wrap;
     place-content: center space-evenly; */
     height: 100%;
+    /* padding-top: 20px; */
 }
+
+/* #sectionServices .scrollContainer{
+    height:;
+} */
 
 #serviceDescription{
     /* display: flex;
@@ -436,10 +451,18 @@ header h2{
     place-content: center; */
     /* position: static; */
     flex-basis: 30%;
+    /* height: 65px; */
 }
+
+/* #serviceDescription.flexColCenter{
+    place-content: center stretch;
+} */
 
 #serviceDescription h2{
     align-self: center;
+    /* height: 65px;
+    position: relative;
+    z-index: 2; */
 }
 
 
@@ -478,10 +501,39 @@ header h2{
 }
 
 
-#service1{
-    /* margin-top:1950px; */
+#serviceCards.setHeight.at500{
+    height: 500px;
 }
 
+#service1{
+    margin-top: 860px;
+}
+
+@media all and (min-width: 430px){
+    #service1{
+        margin-top: 900px;
+    }
+}
+@media all and (min-width: 600px){
+    #service1{
+        margin-top: 1190px;
+    }
+}
+@media all and (min-width: 700px){
+    #service1{
+        margin-top: 1270px;
+    }
+}
+@media all and (min-width: 900px){
+    #service1{
+        margin-top: 1350px;
+    }
+}
+@media all and (min-width: 1200px){
+    #service1{
+        margin-top: 1060px;
+    }
+}
 
 .card{
     background: #366067;
@@ -550,6 +602,9 @@ header h2{
         top: 0;
     }
 
+    #sectionServices{
+        margin: 15px 0px;
+    }
 
 }
 
@@ -704,22 +759,30 @@ header h2{
 #aboutDescription{
     width: 80%;
     align-self: center;
+    margin-top: 20px;
 }
 
 #aboutDescription .descriptPara{
     display: block;
     visibility: visible;
+    order: 1;
 }
 
 #aboutDescription h2{
     align-self: center;
+    line-height: 2rem;
 }
 
 #ownerPhoto{
     width: 95%;
     height: auto;
     margin: 15px 0;
+    order: 2;
     /* border-left: 1px solid indianred; */
+}
+
+#ownerPhoto img{
+    height: 60%;
 }
 
 
@@ -730,65 +793,12 @@ header h2{
     }  */
 }
 
-@media screen and (min-width:875px){
-    /* #body #three {
-    position: fixed;
-    right: 0;
-    bottom: 320px;
-    margin: 0;
-    height: 280px;
-    width: 645px;
-    background-color: rgba(255,255,255,1);
-    background-color: transparent;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, .6);
-    } */
- 
-    /* #three .featureCard {
-    display: flex;
-    flex-flow: column wrap;
-    height: 100%;
+@media screen and (min-width:1200px){
+    #ownerPhoto img{
+        height: 450px;
     }
-
-    .featureCard p {
-    font: 1.5rem/1.7rem "Julius Sans One", Helvetica, sans-serif;
-    width: 60%;
-    margin-top: 50px;
-    color: white;
-    }
-
-    .featureCard strong {
-    font-weight: 400;
-    font-size: 2.5rem;
-    }
-
-    #chefHeader {
-    height: 12%;
-    width: 25%;
-    text-align: center;
-    background-color: white;
-    margin-left: 2%;
-    } */
- 
 }
 
-
-/******************************************
-/* SECTION-ABOUT - FULLSCREEN
-/*******************************************/   
-@media screen and (min-width:1330px) {
-    /* #body #three {
-    width: 1120px;
-    height: 430px;
-    }
-
-    #three #chefHeader {
-    height: 8%;
-    }
-
-    #one #menuCategory {
-    margin-top: 600px;
-    } */
-}
 
 
 /******************************************
@@ -930,6 +940,7 @@ header h2{
 
 #contactDescription h2{
     align-self: center;
+    width: 85%;
 }
 
 #contactForm{
@@ -994,14 +1005,14 @@ input{
 }
 
 #contactDescription{
-    width: 35%;
+    width: 100%;
     height: 100%;
     margin-top: 15px;
 }
 
-.butRowAt1200 #contactForm{
+/* .butRowAt1200 #contactForm{
     flex-basis: 60%;
-}
+} */
 
 
 

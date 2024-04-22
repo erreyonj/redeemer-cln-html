@@ -4,6 +4,7 @@
 const allOfHeaderMenu = document.querySelector('#burgerDiv')
 const wrapper = document.querySelector('.wrapper')
 const fullscreenLO = document.querySelector('#fullscreenLO')
+const logo = document.querySelector('#headerLogoBox')
 
 
 
@@ -34,11 +35,12 @@ const removeMobileLO = () => {
     }
     wrapper.setAttribute('id','mobileLayout')
 }
-const makeRows = () => {
+const moveLogo = () => {
     if(window.screen.availWidth>=1200){
-        fullscreenLO.
+        logo.setAttribute('style','position:static')
         return
     }
+    logo.toggleAttribute('style')
 }
 
 
@@ -48,6 +50,7 @@ const makeRows = () => {
 const screen1200 = () => {
    hideMenu()
    removeMobileLO()
+   moveLogo()
 }
 
 
